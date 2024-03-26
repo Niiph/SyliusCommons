@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Niiph\SyliusCommonPlugin\EventListener;
 
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
