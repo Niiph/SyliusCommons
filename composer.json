@@ -1,0 +1,66 @@
+{
+  "name": "niiph/sylius-common",
+  "authors": [
+    {
+      "name": "Piotr Opioła"
+    }
+  ],
+  "description": "",
+  "keywords": [
+  ],
+  "license": "proprietary",
+  "require": {
+    "php": "^8.1",
+    "sylius/sylius": "1.*",
+    "doctrine/doctrine-bundle": "^2.8",
+    "doctrine/orm": "^2.6.4"
+  },
+  "require-dev": {
+    "phpstan/extension-installer": "^1.0",
+    "phpstan/phpstan": "^1.8.1",
+    "phpstan/phpstan-strict-rules": "^1.3.0",
+    "phpstan/phpstan-webmozart-assert": "^1.2.0",
+    "sylius-labs/coding-standard": "^4.2",
+    "symfony/browser-kit": "^6.0",
+    "symfony/debug-bundle": "^6.0",
+    "symfony/dotenv": "^6.0",
+    "symfony/flex": "^2.2.2",
+    "symfony/intl": "^6.0",
+    "symfony/web-profiler-bundle": "^6.0",
+    "vimeo/psalm": "^5.9"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": false,
+      "phpstan/extension-installer": true,
+      "symfony/flex": true
+    }
+  },
+  "extra": {
+    "symfony": {
+      "require": "^6.0"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Niiph\\SyliusCommon\\": "src/",
+      "Niiph\\SyliusCommon\\config\\": "config/"
+    }
+  },
+  "scripts": {
+    "auto-scripts": {
+      "cache:clear": "symfony-cmd",
+      "security-checker security:check": "script",
+      "assets:install %PUBLIC_DIR%": "symfony-cmd"
+    },
+    "linter:fix": [
+      "@php vendor/bin/ecs check src --fix"
+    ],
+    "ci:check": [
+      "composer validate",
+      "vendor/bin/phpstan analyse -c phpstan.neon -l max src/"
+    ]
+  },
+  "minimum-stability": "dev"
+}
